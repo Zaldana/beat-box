@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Machine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <button class="show-synth">show</button>
+        <button class="show-drums">show</button>
+    </div>
+
+    <div class="container">
+
+        <div class="drum-machine">
+            <div class="row first">
+                <div class="display" id="display-text"></div>  
+                <div class="pad start">
+                    <input type="checkbox" name="start"  class="instrument" >
+                    <h5>Start<br>Stop</h5>
+                </div>
+                <div class="pad start">
+                    <input type="checkbox" id="metronome"  class="instrument" >
+                    <h5>Click<br>Track</h5>
+                </div>
+            </div>
+
+            <div class="row second">
+                <div class="pad one">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-1'>
+                </div>
+                <div class="pad two">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-2'>
+                </div>
+                <div class="pad three">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-3'>
+                </div>
+                <div class="pad four">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-4'>
+                </div>
+                <div class="pad five">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-5'>
+                </div>
+                <div class="pad six">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-6'>
+                </div>
+                <div class="pad seven">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-7'>
+                </div>
+                <div class="pad eight">
+                    <input type="checkbox" name="kick" class="instrument" id='kick-8'>
+                </div>
+            </div>
+            
+            <div class="row third">
+                <div class="pad one">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-1'>
+                </div>
+                <div class="pad two">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-2'>
+                </div>
+                <div class="pad three">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-3'>
+                </div>
+                <div class="pad four">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-4'>
+                </div>
+                <div class="pad five">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-5'>
+                </div>
+                <div class="pad six">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-6'>
+                </div>
+                <div class="pad seven">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-7'>
+                </div>
+                <div class="pad eight">
+                    <input type="checkbox" name="clap" class="instrument" id='clap-8'>
+                </div>
+            </div>
+
+            <div class="row fourth">
+                <div class="pad one">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-1'>
+                </div>
+                <div class="pad two">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-2'>
+                </div>
+                <div class="pad three">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-3'>
+                </div>
+                <div class="pad four">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-4'>
+                </div>
+                <div class="pad five">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-5'>
+                </div>
+                <div class="pad six">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-6'>
+                </div>
+                <div class="pad seven">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-7'>
+                </div>
+                <div class="pad eight">
+                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-8'>
+                </div>
+            </div>
+
+            <div class="row fifth">
+                <div class="pad one">
+                <input type="checkbox" name="snare" class="instrument" id='snare-1'>
+                </div>
+                <div class="pad two">
+                    <input type="checkbox" name="snare" class="instrument" id='snare-2'>
+                </div>
+                <div class="pad three">
+                    <input type="checkbox" name="snare" class="instrument" id='snare-3'>
+                </div>
+                <div class="pad four">
+                    <input type="checkbox" name="snare" class="instrument" id='snare-4'>
+                </div>    
+                <div class="pad five">
+                    <input type="checkbox" name="snare" class="instrument" id='snare-5'>
+                </div>
+                <div class="pad six">
+                    <input type="checkbox" name="snare" class="instrument" id='snare-6'>
+                </div>
+                <div class="pad seven">
+                    <input type="checkbox" name="snare" class="instrument" id='snare-7'>
+                </div>
+                <div class="pad eight">
+                    <input type="checkbox" name="snare" class="instrument" id='snare-8'>
+                </div>
+            </div>
+
+            <div class="row sixth">
+                <div class="pad one">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-1'>
+                </div>
+                <div class="pad two">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-2'>
+                </div>
+                <div class="pad three">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-3'>
+                </div>
+                <div class="pad four">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-4'>
+                </div>
+                <div class="pad five">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-5'>
+                </div>
+                <div class="pad six">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-6'>
+                </div>
+                <div class="pad seven">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-7'>
+                </div>
+                <div class="pad eight">
+                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-8'>
+                </div>
+            </div>
+        
+            <div class='bottom-bar'>
+                <h4>bears • beatz • battlestar galactica</h4>
+            </div>
+        </div>
+        
+        <div class="synth">
+
+            <div class="display-row">
+                <div class="sequencer">
+                    <div class="column">
+                        <div class="cell note">C</div>
+                        <div class="cell note">C#</div>
+                        <div class="cell note">D</div>
+                        <div class="cell note">D#</div>
+                        <div class="cell note">E</div>
+                        <div class="cell note">F</div>
+                        <div class="cell note">F#</div>
+                        <div class="cell note">G</div>
+                        <div class="cell note">G#</div>
+                        <div class="cell note">A</div>
+                        <div class="cell note">A#</div>
+                        <div class="cell note">B</div>
+                    </div>
+                    <div class="column">
+                        <div class="cell">
+                            <input type="checkbox" name="cowbell" class="instrument" id='cowbell-1'>
+                        </div>
+                        <div class="cell">
+                            <input type="checkbox" name="cowbell" class="instrument" id='cowbell-8'>
+                        </div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="column">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="column">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="column">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="column">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="column">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="column">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="column">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="keys-row-one">
+
+                <div class="key-container invisible">
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                
+                </div>
+                <div class="key-container invisible">
+                </div>
+                <div class="key-container">
+                
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container invisible">
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container invisible">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container invisible">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container invisible">
+            
+                </div>
+            
+            </div>
+            
+            <div class="keys-row-two">
+
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+                <div class="key-container">
+                    
+                </div>
+
+            </div>
+
+        </div>
+    
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
