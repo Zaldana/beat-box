@@ -20,12 +20,25 @@ const startInt = function () { intId = setInterval(metronomeUpdate, 300); }
 //count variable
 let count = 0;
 
+
 // CSS edits ==========================================================
 
-//Onload
-// $(document).ready(function () {
-//     $('.synth').css({"visibility": "hidden"})
-// });
+//On page load
+$(document).ready(function () {
+
+    $('.synth').css({
+        "visibility": "hidden",
+        "position": "absolute",
+        "z-index": "-1"
+    });
+    
+    $('#step-16').prop('checked', true);
+    $('.drum-machine').
+        find('.break:checked').
+        closest('.pad').
+        css({ 'background-color': 'red' });
+
+});
 
 // body click listeners
 $('body').click(function () {
@@ -33,7 +46,7 @@ $('body').click(function () {
     $('.show-synth').click(function () {
         $('.container').css({ 'flex-direction': 'column-reverse' })
         $('.drum-machine').css({ 'visibility': 'hidden' });
-        $('.synth').css({ "visibility": "visible" });
+        $('.synth').css({ "visibility": "visible", "z-index": "1" });
     })
 
     $('.show-drums').click(function () {
@@ -51,6 +64,16 @@ $('body').click(function () {
         find($('.instrument:checkbox:not(:checked)')).
         closest('.pad').
         css({ 'background-color': 'rgb(70, 70, 70)' });
+
+    $('.drum-machine').
+        find('.break:radio:not(:checked)').
+        closest('.pad').
+        css({ 'background-color': 'rgb(70, 70, 70)' });
+
+    $('.drum-machine').
+        find('.break:checked').
+        closest('.pad').
+        css({ 'background-color': 'red' });
 
     $('.synth').
         find('input.key-cell:checked').
@@ -91,15 +114,22 @@ function metronomeUpdate() {
             count == 3 ||
             count == 5 ||
             count == 6 ||
-            count == 7) {
+            count == 7 ||
+            count == 9 ||
+            count == 10 ||
+            count == 11 ||
+            count == 13 ||
+            count == 14 ||
+            count == 15) {
             tick.play();
-        } if (count == 4 || count == 8) {
+        } if (count == 4 || count == 8 || count == 12 || count == 16) {
             tock.play();
         }
     };
 
+    let radioVariable = Number($(".break:checked").val());
     //Count reset
-    if (count >= 8) {
+    if (count >= radioVariable) {
         count = 0;
     };
 
@@ -110,7 +140,7 @@ function metronomeUpdate() {
     $("#display-text").text("Count: " + count);
 
     // Count animation ===========================================================================
-    for (i = 0; i <= 8; i++ ) {
+    for (i = 0; i <= 16; i++ ) {
 
         if (count === i) {
 
@@ -123,11 +153,10 @@ function metronomeUpdate() {
                 });
             
             $('.synth').
-                find($(".instrument:checkbox:not(:checked)")).
+                find($(".key-cell:checkbox:not(:checked)")).
                 closest(`.${i}`).
                 css({
-                    'background-color': 'DarkTurquoise',
-                    'box-shadow': '0 0 20px rgb(191, 255, 255)'
+                    'background-color': 'rgb(255, 105, 180, 0.5)'
                 });
 
         } if (count != i) {
@@ -138,9 +167,9 @@ function metronomeUpdate() {
                 css({ 'background-color': 'rgb(70, 70, 70)' });
 
             $('.synth').
-                find($(".instrument:checkbox:not(:checked)")).
+                find($(".key-cell:checkbox:not(:checked)")).
                 closest(`.${i}`).
-                css({ 'background-color': 'rgb(70, 70, 70)' });
+                css({ 'background-color': 'rgb(33, 3, 46)' });
         }
     }   
 };
@@ -151,7 +180,7 @@ setInterval(kickUpdate, 300);
 
 function kickUpdate() {
 
-    for (let i=0; i <= 8; i++) {
+    for (let i=0; i <= 16; i++) {
 
         if ($(`#kick-${i}`).prop('checked') && count === i) {
             kickDrum.load();
@@ -164,7 +193,7 @@ setInterval(clapUpdate, 300);
 
 function clapUpdate() {
 
-    for (let i = 0; i <= 8; i++) {
+    for (let i = 0; i <= 16; i++) {
 
         if ($(`#clap-${i}`).prop('checked') && count === i) {
             clap.load();
@@ -179,7 +208,7 @@ setInterval(hiUpdate, 300);
 
 function hiUpdate() {
 
-    for (let i = 0; i <= 8; i++) {
+    for (let i = 0; i <= 16; i++) {
 
         if ($(`#hat-${i}`).prop('checked') && count === i) {
             hiHats.load();
@@ -194,7 +223,7 @@ setInterval(snareUpdate, 300);
 
 function snareUpdate() {
 
-    for (let i = 0; i <= 8; i++) {
+    for (let i = 0; i <= 16; i++) {
 
         if ($(`#snare-${i}`).prop('checked') && count === i) {
             snareDrum.load();
@@ -209,7 +238,7 @@ setInterval(cowbellUpdate, 300);
 
 function cowbellUpdate() {
 
-    for (let i = 0; i <= 8; i++) {
+    for (let i = 0; i <= 16; i++) {
 
         if ($(`#cowbell-${i}`).prop('checked') && count === i) {
             cowBell.load();
