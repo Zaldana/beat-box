@@ -1,13 +1,28 @@
 //Samples =============================================================
 
-//Instruments
+//Drums
 const kickDrum = new Audio('drum-sounds/kick-drum.mp3');
 const clap = new Audio('drum-sounds/clap.mp3');
 const hiHats = new Audio('drum-sounds/hi-hat.mp3');
 const snareDrum = new Audio('drum-sounds/snare.mp3');
 const cowBell = new Audio('drum-sounds/cowbell.mp3');
 
-// //Click track
+//Synth
+const c = new Audio('synth-sounds/c.mp3')
+const cs = new Audio('synth-sounds/cs.mp3')
+const d = new Audio('synth-sounds/d.mp3')
+const ds = new Audio('synth-sounds/ds.mp3')
+const e = new Audio('synth-sounds/e.mp3')
+const f = new Audio('synth-sounds/f.mp3')
+const fs = new Audio('synth-sounds/fs.mp3')
+const g = new Audio('synth-sounds/g.mp3')
+const gS = new Audio('synth-sounds/gs.mp3')
+const a = new Audio('synth-sounds/a.mp3')
+const as = new Audio('synth-sounds/as.mp3')
+const b = new Audio('synth-sounds/b.mp3')
+
+
+//Click track
 const tick = new Audio('drum-sounds/tick.mp3');
 const tock = new Audio('drum-sounds/tock.mp3');
 
@@ -109,28 +124,25 @@ function metronomeUpdate() {
 
     //Click track
     if ($('#metronome').prop('checked')) {
-        if (count == 1 ||
-            count == 2 ||
-            count == 3 ||
-            count == 5 ||
-            count == 6 ||
-            count == 7 ||
-            count == 9 ||
-            count == 10 ||
-            count == 11 ||
-            count == 13 ||
-            count == 14 ||
-            count == 15) {
+        
+        if (count == 1 || count == 2 ||count == 3 || count == 5 || count == 6 ||
+            count == 7 || count == 9 || count == 10 || count == 11 || count == 13 ||
+            count == 14 ||count == 15) {
+
             tick.play();
+
         } if (count == 4 || count == 8 || count == 12 || count == 16) {
+            
             tock.play();
         }
     };
 
     let radioVariable = Number($(".break:checked").val());
-    //Count reset
+
     if (count >= radioVariable) {
+        
         count = 0;
+   
     };
 
     //Count Update
@@ -171,79 +183,79 @@ function metronomeUpdate() {
                 closest(`.${i}`).
                 css({ 'background-color': 'rgb(33, 3, 46)' });
         }
-    }   
+    }
 };
 
-
 //Kick Drum
-setInterval(kickUpdate, 300);
+setInterval(drumInt, 300);
 
-function kickUpdate() {
+function drumInt() {
 
     for (let i=0; i <= 16; i++) {
 
         if ($(`#kick-${i}`).prop('checked') && count === i) {
             kickDrum.load();
             kickDrum.play();
-        }
-    }
-}
-//Clap
-setInterval(clapUpdate, 300);
-
-function clapUpdate() {
-
-    for (let i = 0; i <= 16; i++) {
-
-        if ($(`#clap-${i}`).prop('checked') && count === i) {
+        } if ($(`#clap-${i}`).prop('checked') && count === i) {
             clap.load();
             clap.play();
-        }
-    }
-
-};
-
-//HiHats
-setInterval(hiUpdate, 300);
-
-function hiUpdate() {
-
-    for (let i = 0; i <= 16; i++) {
-
-        if ($(`#hat-${i}`).prop('checked') && count === i) {
+        } if ($(`#hat-${i}`).prop('checked') && count === i) {
             hiHats.load();
             hiHats.play();
-        }
-    }
-
-};
-
-//snare
-setInterval(snareUpdate, 300);
-
-function snareUpdate() {
-
-    for (let i = 0; i <= 16; i++) {
-
-        if ($(`#snare-${i}`).prop('checked') && count === i) {
+        } if ($(`#snare-${i}`).prop('checked') && count === i) {
             snareDrum.load();
             snareDrum.play();
-        }
-    }
-
-};
-
-//cowbell
-setInterval(cowbellUpdate, 300);
-
-function cowbellUpdate() {
-
-    for (let i = 0; i <= 16; i++) {
-
-        if ($(`#cowbell-${i}`).prop('checked') && count === i) {
+        } if ($(`#cowbell-${i}`).prop('checked') && count === i) {
             cowBell.load();
             cowBell.play();
         }
     }
+};
 
+
+setInterval(seqUpdate, 300);
+
+function seqUpdate() {
+
+    for (let i = 0; i <= 16; i++) {
+
+        if ($(`#c${i}`).prop('checked') && count === i) {
+            c.load();
+            c.play();
+        } if ($(`#cs${i}`).prop('checked') && count === i) {
+            cs.load();
+            cs.play();
+        } if ($(`#d${i}`).prop('checked') && count === i) {
+            d.load();
+            d.play();
+        } if ($(`#ds${i}`).prop('checked') && count === i) {
+            ds.load();
+            ds.play();
+        } if ($(`#e${i}`).prop('checked') && count === i) {
+            e.load();
+            e.play();
+        } if ($(`#f${i}`).prop('checked') && count === i) {
+            f.load();
+            f.play();
+        } if ($(`#fs${i}`).prop('checked') && count === i) {
+            fs.load();
+            fs.play();
+        } if ($(`#g${i}`).prop('checked') && count === i) {
+            g.load();
+            g.play();
+        } if ($(`#gs${i}`).prop('checked') && count === i) {
+            gs.load();
+            gs.play();
+        } if ($(`#a${i}`).prop('checked') && count === i) {
+            a.load();
+            a.play();
+        } if ($(`#as${i}`).prop('checked') && count === i) {
+            as.load();
+            as.play();
+        } if ($(`#b${i}`).prop('checked') && count === i) {
+            b.load();
+            b.play();
+        }
+
+    }
 };

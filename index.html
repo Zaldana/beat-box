@@ -12,20 +12,22 @@
 </head>
 <body>
     <div class="header">
-        <button class="show-synth">show</button>
-        <button class="show-drums">show</button>
+         <div class="pad start">
+            <input type="checkbox" name="start"  class="instrument" >
+            <h5>Start<br>Stop</h5>
+        </div>
+        <img src="images/drums.png" class="instrument-pic show-drums" alt="drum machine icon"/>
+        <img src="images/keys.png" class="instrument-pic show-synth" alt="sequencer icon"/>
     </div>
 
     <div class="container">
 
         <div class="drum-machine">
+            
             <div class="drum-row first">
                 <div class="display" id="display-text"></div>  
-                <div class="pad start">
-                    <input type="checkbox" name="start"  class="instrument" >
-                    <h5>Start<br>Stop</h5>
-                </div>
-                <div class="pad start">
+               
+                <div class="pad start click">
                     <input type="checkbox" id="metronome"  class="instrument" >
                     <h5>Click<br>Track</h5>
                 </div>
@@ -52,52 +54,52 @@
 
             <div class="drum-row">
                 <div class="pad 1">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-1'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-1">
                 </div>
                 <div class="pad 2">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-2'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-2">
                 </div>
                 <div class="pad 3">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-3'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-3">
                 </div>
                 <div class="pad 4">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-4'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-4">
                 </div>
                 <div class="pad 5">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-5'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-5">
                 </div>
                 <div class="pad 6">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-6'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-6">
                 </div>
                 <div class="pad 7">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-7'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-7">
                 </div>
                 <div class="pad 8">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-8'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-8">
                 </div>
                 <div class="pad 9">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-9'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-9">
                 </div>
                 <div class="pad 10">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-10'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-10">
                 </div>
                 <div class="pad 11">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-11'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-11">
                 </div>
                 <div class="pad 12">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-12'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-12">
                 </div>
                 <div class="pad 13">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-13'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-13">
                 </div>
                 <div class="pad 14">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-14'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-14">
                 </div>
                 <div class="pad 15">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-15'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-15">
                 </div>
                 <div class="pad 16">
-                    <input type="checkbox" name="kick" class="instrument" id='kick-16'>
+                    <input type="checkbox" name="kick" class="instrument" id="kick-16">
                 </div>
             </div>
             
@@ -122,52 +124,52 @@
 
             <div class="drum-row">
                 <div class="pad 1">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-1'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-1">
                 </div>
                 <div class="pad 2">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-2'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-2">
                 </div>
                 <div class="pad 3">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-3'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-3">
                 </div>
                 <div class="pad 4">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-4'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-4">
                 </div>
                 <div class="pad 5">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-5'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-5">
                 </div>
                 <div class="pad 6">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-6'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-6">
                 </div>
                 <div class="pad 7">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-7'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-7">
                 </div>
                 <div class="pad 8">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-8'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-8">
                 </div>
                 <div class="pad 9">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-9'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-9">
                 </div>
                 <div class="pad 10">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-10'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-10">
                 </div>
                 <div class="pad 11">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-11'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-11">
                 </div>
                 <div class="pad 12">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-12'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-12">
                 </div>
                 <div class="pad 13">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-13'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-13">
                 </div>
                 <div class="pad 14">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-14'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-14">
                 </div>
                 <div class="pad 15">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-15'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-15">
                 </div>
                 <div class="pad 16">
-                    <input type="checkbox" name="clap" class="instrument" id='clap-16'>
+                    <input type="checkbox" name="clap" class="instrument" id="clap-16">
                 </div>
             </div>
 
@@ -192,52 +194,52 @@
 
             <div class="drum-row">
                 <div class="pad 1">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-1'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-1">
                 </div>
                 <div class="pad 2">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-2'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-2">
                 </div>
                 <div class="pad 3">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-3'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-3">
                 </div>
                 <div class="pad 4">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-4'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-4">
                 </div>
                 <div class="pad 5">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-5'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-5">
                 </div>
                 <div class="pad 6">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-6'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-6">
                 </div>
                 <div class="pad 7">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-7'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-7">
                 </div>
                 <div class="pad 8">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-8'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-8">
                 </div>
                 <div class="pad 9">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-9'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-9">
                 </div>
                 <div class="pad 10">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-10'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-10">
                 </div>
                 <div class="pad 11">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-11'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-11">
                 </div>
                 <div class="pad 12">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-12'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-12">
                 </div>
                 <div class="pad 13">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-13'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-13">
                 </div>
                 <div class="pad 14">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-14'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-14">
                 </div>
                 <div class="pad 15">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-15'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-15">
                 </div>
                 <div class="pad 16">
-                    <input type="checkbox" name="hi-hat" class="instrument" id='hat-16'>
+                    <input type="checkbox" name="hi-hat" class="instrument" id="hat-16">
                 </div>
             </div>
 
@@ -262,52 +264,52 @@
 
             <div class="drum-row">
                 <div class="pad 1">
-                <input type="checkbox" name="snare" class="instrument" id='snare-1'>
+                <input type="checkbox" name="snare" class="instrument" id="snare-1">
                 </div>
                 <div class="pad 2">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-2'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-2">
                 </div>
                 <div class="pad 3">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-3'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-3">
                 </div>
                 <div class="pad 4">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-4'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-4">
                 </div>    
                 <div class="pad 5">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-5'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-5">
                 </div>
                 <div class="pad 6">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-6'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-6">
                 </div>
                 <div class="pad 7">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-7'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-7">
                 </div>
                 <div class="pad 8">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-8'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-8">
                 </div>
                 <div class="pad 9">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-9'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-9">
                 </div>
                 <div class="pad 10">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-10'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-10">
                 </div>
                 <div class="pad 11">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-11'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-11">
                 </div>
                 <div class="pad 12">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-12'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-12">
                 </div>
                 <div class="pad 13">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-13'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-13">
                 </div>
                 <div class="pad 14">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-14'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-14">
                 </div>
                 <div class="pad 15">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-15'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-15">
                 </div>
                 <div class="pad 16">
-                    <input type="checkbox" name="snare" class="instrument" id='snare-16'>
+                    <input type="checkbox" name="snare" class="instrument" id="snare-16">
                 </div>
             </div>
 
@@ -332,52 +334,52 @@
 
             <div class="drum-row">
                 <div class="pad 1">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-1'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-1">
                 </div>
                 <div class="pad 2">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-2'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-2">
                 </div>
                 <div class="pad 3">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-3'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-3">
                 </div>
                 <div class="pad 4">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-4'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-4">
                 </div>
                 <div class="pad 5">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-5'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-5">
                 </div>
                 <div class="pad 6">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-6'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-6">
                 </div>
                 <div class="pad 7">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-7'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-7">
                 </div>
                 <div class="pad 8">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-8'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-8">
                 </div>
                 <div class="pad 9">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-9'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-9">
                 </div>
                 <div class="pad 10">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-10'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-10">
                 </div>
                 <div class="pad 11">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-11'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-11">
                 </div>
                 <div class="pad 12">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-12'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-12">
                 </div>
                 <div class="pad 13">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-13'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-13">
                 </div>
                 <div class="pad 14">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-14'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-14">
                 </div>
                 <div class="pad 15">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-15'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-15">
                 </div>
                 <div class="pad 16">
-                    <input type="checkbox" name="cowbell" class="instrument" id='cowbell-16'>
+                    <input type="checkbox" name="cowbell" class="instrument" id="cowbell-16">
                 </div>
             </div>
 
@@ -451,15 +453,14 @@
                 </div>
             </div>    
             
-            <div class='bottom-bar'>
+            <div class="bottom-bar">
                 <h4>bears • beatz • battlestar galactica</h4>
             </div>
         </div>
         
         <div class="synth">
 
-            <div class="display-row">
-                
+            <div class="display-row"> 
                 <div class="sequencer">
                     
                     <div class="synth-row">
@@ -517,52 +518,52 @@
                     <div class="synth-row">
                         <div class="cell note">C#</div>
                         <div class="cell 1">
-                            <input type="checkbox" name="key" class="key-cell" id="c#1">
+                            <input type="checkbox" name="key" class="key-cell" id="cs1">
                         </div>
                         <div class="cell 2">
-                            <input type="checkbox" name="key" class="key-cell" id="c#2">
+                            <input type="checkbox" name="key" class="key-cell" id="cs2">
                         </div>
                         <div class="cell 3">
-                            <input type="checkbox" name="key" class="key-cell" id="c#3">
+                            <input type="checkbox" name="key" class="key-cell" id="cs3">
                         </div>
                         <div class="cell 4">
-                            <input type="checkbox" name="key" class="key-cell" id="c#4">
+                            <input type="checkbox" name="key" class="key-cell" id="cs4">
                         </div>
                         <div class="cell 5">
-                            <input type="checkbox" name="key" class="key-cell" id="c#5">
+                            <input type="checkbox" name="key" class="key-cell" id="cs5">
                         </div>
                         <div class="cell 6">
-                            <input type="checkbox" name="key" class="key-cell" id="c#6">
+                            <input type="checkbox" name="key" class="key-cell" id="cs6">
                         </div>
                         <div class="cell 7">
-                            <input type="checkbox" name="key" class="key-cell" id="c#7">
+                            <input type="checkbox" name="key" class="key-cell" id="cs7">
                         </div>
                         <div class="cell 8">
-                            <input type="checkbox" name="key" class="key-cell" id="c#8">
+                            <input type="checkbox" name="key" class="key-cell" id="cs8">
                         </div>
                         <div class="cell 9">
-                            <input type="checkbox" name="key" class="key-cell" id="c#9">
+                            <input type="checkbox" name="key" class="key-cell" id="cs9">
                         </div>
                         <div class="cell 10">
-                            <input type="checkbox" name="key" class="key-cell" id="c#10">
+                            <input type="checkbox" name="key" class="key-cell" id="cs10">
                         </div>
                         <div class="cell 11">
-                            <input type="checkbox" name="key" class="key-cell" id="c#11">
+                            <input type="checkbox" name="key" class="key-cell" id="cs11">
                         </div>
                         <div class="cell 12">
-                            <input type="checkbox" name="key" class="key-cell" id="c#12">
+                            <input type="checkbox" name="key" class="key-cell" id="cs12">
                         </div>
                         <div class="cell 13">
-                            <input type="checkbox" name="key" class="key-cell" id="c#13">
+                            <input type="checkbox" name="key" class="key-cell" id="cs13">
                         </div>
                         <div class="cell 14">
-                            <input type="checkbox" name="key" class="key-cell" id="c#14">
+                            <input type="checkbox" name="key" class="key-cell" id="cs14">
                         </div>
                         <div class="cell 15">
-                            <input type="checkbox" name="key" class="key-cell" id="c#15">
+                            <input type="checkbox" name="key" class="key-cell" id="cs15">
                         </div>
                         <div class="cell 16">
-                            <input type="checkbox" name="key" class="key-cell" id="c#16">
+                            <input type="checkbox" name="key" class="key-cell" id="cs16">
                         </div>
                     </div>
 
@@ -621,52 +622,52 @@
                     <div class="synth-row">
                         <div class="cell note">D#</div>
                         <div class="cell 1">
-                            <input type="checkbox" name="key" class="key-cell" id="d#1">
+                            <input type="checkbox" name="key" class="key-cell" id="ds1">
                         </div>
                         <div class="cell 2">
-                            <input type="checkbox" name="key" class="key-cell" id="d#2">
+                            <input type="checkbox" name="key" class="key-cell" id="ds2">
                         </div>
                         <div class="cell 3">
-                            <input type="checkbox" name="key" class="key-cell" id="d#3">
+                            <input type="checkbox" name="key" class="key-cell" id="ds3">
                         </div>
                         <div class="cell 4">
-                            <input type="checkbox" name="key" class="key-cell" id="d#4">
+                            <input type="checkbox" name="key" class="key-cell" id="ds4">
                         </div>
                         <div class="cell 5">
-                            <input type="checkbox" name="key" class="key-cell" id="d#5">
+                            <input type="checkbox" name="key" class="key-cell" id="ds5">
                         </div>
                         <div class="cell 6">
-                            <input type="checkbox" name="key" class="key-cell" id="d#6">
+                            <input type="checkbox" name="key" class="key-cell" id="ds6">
                         </div>
                         <div class="cell 7">
-                            <input type="checkbox" name="key" class="key-cell" id="d#7">
+                            <input type="checkbox" name="key" class="key-cell" id="ds7">
                         </div>
                         <div class="cell 8">
-                            <input type="checkbox" name="key" class="key-cell" id="d#8">
+                            <input type="checkbox" name="key" class="key-cell" id="ds8">
                         </div>
                         <div class="cell 9">
-                            <input type="checkbox" name="key" class="key-cell" id="d#9">
+                            <input type="checkbox" name="key" class="key-cell" id="ds9">
                         </div>
                         <div class="cell 10">
-                            <input type="checkbox" name="key" class="key-cell" id="d#10">
+                            <input type="checkbox" name="key" class="key-cell" id="ds10">
                         </div>
                         <div class="cell 11">
-                            <input type="checkbox" name="key" class="key-cell" id="d#11">
+                            <input type="checkbox" name="key" class="key-cell" id="ds11">
                         </div>
                         <div class="cell 12">
-                            <input type="checkbox" name="key" class="key-cell" id="d#12">
+                            <input type="checkbox" name="key" class="key-cell" id="ds12">
                         </div>
                         <div class="cell 13">
-                            <input type="checkbox" name="key" class="key-cell" id="d#13">
+                            <input type="checkbox" name="key" class="key-cell" id="ds13">
                         </div>
                         <div class="cell 14">
-                            <input type="checkbox" name="key" class="key-cell" id="d#14">
+                            <input type="checkbox" name="key" class="key-cell" id="ds14">
                         </div>
                         <div class="cell 15">
-                            <input type="checkbox" name="key" class="key-cell" id="d#15">
+                            <input type="checkbox" name="key" class="key-cell" id="ds15">
                         </div>
                         <div class="cell 16">
-                            <input type="checkbox" name="key" class="key-cell" id="d#16">
+                            <input type="checkbox" name="key" class="key-cell" id="ds16">
                         </div>
                     </div>
 
@@ -777,52 +778,52 @@
                     <div class="synth-row">
                         <div class="cell note">F#</div>
                         <div class="cell 1">
-                            <input type="checkbox" name="key" class="key-cell" id="f#1">
+                            <input type="checkbox" name="key" class="key-cell" id="fs1">
                         </div>
                         <div class="cell 2">
-                            <input type="checkbox" name="key" class="key-cell" id="f#2">
+                            <input type="checkbox" name="key" class="key-cell" id="fs2">
                         </div>
                         <div class="cell 3">
-                            <input type="checkbox" name="key" class="key-cell" id="f#3">
+                            <input type="checkbox" name="key" class="key-cell" id="fs3">
                         </div>
                         <div class="cell 4">
-                            <input type="checkbox" name="key" class="key-cell" id="f#4">
+                            <input type="checkbox" name="key" class="key-cell" id="fs4">
                         </div>
                         <div class="cell 5">
-                            <input type="checkbox" name="key" class="key-cell" id="f#5">
+                            <input type="checkbox" name="key" class="key-cell" id="fs5">
                         </div>
                         <div class="cell 6">
-                            <input type="checkbox" name="key" class="key-cell" id="f#6">
+                            <input type="checkbox" name="key" class="key-cell" id="fs6">
                         </div>
                         <div class="cell 7">
-                            <input type="checkbox" name="key" class="key-cell" id="f#7">
+                            <input type="checkbox" name="key" class="key-cell" id="fs7">
                         </div>
                         <div class="cell 8">
-                            <input type="checkbox" name="key" class="key-cell" id="f#8">
+                            <input type="checkbox" name="key" class="key-cell" id="fs8">
                         </div>
                         <div class="cell 9">
-                            <input type="checkbox" name="key" class="key-cell" id="f#9">
+                            <input type="checkbox" name="key" class="key-cell" id="fs9">
                         </div>
                         <div class="cell 10">
-                            <input type="checkbox" name="key" class="key-cell" id="f#10">
+                            <input type="checkbox" name="key" class="key-cell" id="fs10">
                         </div>
                         <div class="cell 11">
-                            <input type="checkbox" name="key" class="key-cell" id="f#11">
+                            <input type="checkbox" name="key" class="key-cell" id="fs11">
                         </div>
                         <div class="cell 12">
-                            <input type="checkbox" name="key" class="key-cell" id="f#12">
+                            <input type="checkbox" name="key" class="key-cell" id="fs12">
                         </div>
                         <div class="cell 13">
-                            <input type="checkbox" name="key" class="key-cell" id="f#13">
+                            <input type="checkbox" name="key" class="key-cell" id="fs13">
                         </div>
                         <div class="cell 14">
-                            <input type="checkbox" name="key" class="key-cell" id="f#14">
+                            <input type="checkbox" name="key" class="key-cell" id="fs14">
                         </div>
                         <div class="cell 15">
-                            <input type="checkbox" name="key" class="key-cell" id="f#15">
+                            <input type="checkbox" name="key" class="key-cell" id="fs15">
                         </div>
                         <div class="cell 16">
-                            <input type="checkbox" name="key" class="key-cell" id="f#16">
+                            <input type="checkbox" name="key" class="key-cell" id="fs16">
                         </div>
                     </div>
 
@@ -881,52 +882,52 @@
                     <div class="synth-row">
                         <div class="cell note">G#</div>
                         <div class="cell 1">
-                            <input type="checkbox" name="key" class="key-cell" id="g#1">
+                            <input type="checkbox" name="key" class="key-cell" id="gs1">
                         </div>
                         <div class="cell 2">
-                            <input type="checkbox" name="key" class="key-cell" id="g#2">
+                            <input type="checkbox" name="key" class="key-cell" id="gs2">
                         </div>
                         <div class="cell 3">
-                            <input type="checkbox" name="key" class="key-cell" id="g#3">
+                            <input type="checkbox" name="key" class="key-cell" id="gs3">
                         </div>
                         <div class="cell 4">
-                            <input type="checkbox" name="key" class="key-cell" id="g#4">
+                            <input type="checkbox" name="key" class="key-cell" id="gs4">
                         </div>
                         <div class="cell 5">
-                            <input type="checkbox" name="key" class="key-cell" id="g#5">
+                            <input type="checkbox" name="key" class="key-cell" id="gs5">
                         </div>
                         <div class="cell 6">
-                            <input type="checkbox" name="key" class="key-cell" id="g#6">
+                            <input type="checkbox" name="key" class="key-cell" id="gs6">
                         </div>
                         <div class="cell 7">
-                            <input type="checkbox" name="key" class="key-cell" id="g#7">
+                            <input type="checkbox" name="key" class="key-cell" id="gs7">
                         </div>
                         <div class="cell 8">
-                            <input type="checkbox" name="key" class="key-cell" id="g#8">
+                            <input type="checkbox" name="key" class="key-cell" id="gs8">
                         </div>
                         <div class="cell 9">
-                            <input type="checkbox" name="key" class="key-cell" id="g#9">
+                            <input type="checkbox" name="key" class="key-cell" id="gs9">
                         </div>
                         <div class="cell 10">
-                            <input type="checkbox" name="key" class="key-cell" id="g#10">
+                            <input type="checkbox" name="key" class="key-cell" id="gs10">
                         </div>
                         <div class="cell 11">
-                            <input type="checkbox" name="key" class="key-cell" id="g#11">
+                            <input type="checkbox" name="key" class="key-cell" id="gs11">
                         </div>
                         <div class="cell 12">
-                            <input type="checkbox" name="key" class="key-cell" id="g#12">
+                            <input type="checkbox" name="key" class="key-cell" id="gs12">
                         </div>
                         <div class="cell 13">
-                            <input type="checkbox" name="key" class="key-cell" id="g#13">
+                            <input type="checkbox" name="key" class="key-cell" id="gs13">
                         </div>
                         <div class="cell 14">
-                            <input type="checkbox" name="key" class="key-cell" id="g#14">
+                            <input type="checkbox" name="key" class="key-cell" id="gs14">
                         </div>
                         <div class="cell 15">
-                            <input type="checkbox" name="key" class="key-cell" id="g#15">
+                            <input type="checkbox" name="key" class="key-cell" id="gs15">
                         </div>
                         <div class="cell 16">
-                            <input type="checkbox" name="key" class="key-cell" id="g#16">
+                            <input type="checkbox" name="key" class="key-cell" id="gs16">
                         </div>
                     </div>
 
@@ -985,52 +986,52 @@
                     <div class="synth-row">
                         <div class="cell note">A#</div>
                         <div class="cell 1">
-                            <input type="checkbox" name="key" class="key-cell" id="a#1">
+                            <input type="checkbox" name="key" class="key-cell" id="as1">
                         </div>
                         <div class="cell 2">
-                            <input type="checkbox" name="key" class="key-cell" id="a#2">
+                            <input type="checkbox" name="key" class="key-cell" id="as2">
                         </div>
                         <div class="cell 3">
-                            <input type="checkbox" name="key" class="key-cell" id="a#3">
+                            <input type="checkbox" name="key" class="key-cell" id="as3">
                         </div>
                         <div class="cell 4">
-                            <input type="checkbox" name="key" class="key-cell" id="a#4">
+                            <input type="checkbox" name="key" class="key-cell" id="as4">
                         </div>
                         <div class="cell 5">
-                            <input type="checkbox" name="key" class="key-cell" id="a#5">
+                            <input type="checkbox" name="key" class="key-cell" id="as5">
                         </div>
                         <div class="cell 6">
-                            <input type="checkbox" name="key" class="key-cell" id="a#6">
+                            <input type="checkbox" name="key" class="key-cell" id="as6">
                         </div>
                         <div class="cell 7">
-                            <input type="checkbox" name="key" class="key-cell" id="a#7">
+                            <input type="checkbox" name="key" class="key-cell" id="as7">
                         </div>
                         <div class="cell 8">
-                            <input type="checkbox" name="key" class="key-cell" id="a#8">
+                            <input type="checkbox" name="key" class="key-cell" id="as8">
                         </div>
                         <div class="cell 9">
-                            <input type="checkbox" name="key" class="key-cell" id="a#9">
+                            <input type="checkbox" name="key" class="key-cell" id="as9">
                         </div>
                         <div class="cell 10">
-                            <input type="checkbox" name="key" class="key-cell" id="a#10">
+                            <input type="checkbox" name="key" class="key-cell" id="as10">
                         </div>
                         <div class="cell 11">
-                            <input type="checkbox" name="key" class="key-cell" id="a#11">
+                            <input type="checkbox" name="key" class="key-cell" id="as11">
                         </div>
                         <div class="cell 12">
-                            <input type="checkbox" name="key" class="key-cell" id="a#12">
+                            <input type="checkbox" name="key" class="key-cell" id="as12">
                         </div>
                         <div class="cell 13">
-                            <input type="checkbox" name="key" class="key-cell" id="a#13">
+                            <input type="checkbox" name="key" class="key-cell" id="as13">
                         </div>
                         <div class="cell 14">
-                            <input type="checkbox" name="key" class="key-cell" id="a#14">
+                            <input type="checkbox" name="key" class="key-cell" id="as14">
                         </div>
                         <div class="cell 15">
-                            <input type="checkbox" name="key" class="key-cell" id="a#15">
+                            <input type="checkbox" name="key" class="key-cell" id="as15">
                         </div>
                         <div class="cell 16">
-                            <input type="checkbox" name="key" class="key-cell" id="a#16">
+                            <input type="checkbox" name="key" class="key-cell" id="as16">
                         </div>
                     </div>
 
@@ -1092,7 +1093,6 @@
 
             <div class="keys-row-one">
 
-                <div class="key-container invisible black"></div>
                 <div class="key-container black"></div>
                 <div class="key-container black"></div>
                 <div class="key-container invisible black"></div>
@@ -1105,8 +1105,6 @@
                 <div class="key-container invisible"></div>
                 <div class="key-container black"></div>
 
-
-            
             </div>
             
             <div class="keys-row-two">
