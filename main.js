@@ -8,33 +8,31 @@ const snareDrum = new Audio('drum-sounds/snare.mp3');
 const cowBell = new Audio('drum-sounds/cowbell.mp3');
 
 //Synth
-const c = new Audio('synth-sounds/c.mp3')
-const cs = new Audio('synth-sounds/cs.mp3')
-const d = new Audio('synth-sounds/d.mp3')
-const ds = new Audio('synth-sounds/ds.mp3')
-const e = new Audio('synth-sounds/e.mp3')
-const f = new Audio('synth-sounds/f.mp3')
-const fs = new Audio('synth-sounds/fs.mp3')
-const g = new Audio('synth-sounds/g.mp3')
-const gS = new Audio('synth-sounds/gs.mp3')
-const a = new Audio('synth-sounds/a.mp3')
-const as = new Audio('synth-sounds/as.mp3')
-const b = new Audio('synth-sounds/b.mp3')
-
+const c = new Audio('synth-sounds/c.mp3');
+const cs = new Audio('synth-sounds/cs.mp3');
+const d = new Audio('synth-sounds/d.mp3');
+const ds = new Audio('synth-sounds/ds.mp3');
+const e = new Audio('synth-sounds/e.mp3');
+const f = new Audio('synth-sounds/f.mp3');
+const fs = new Audio('synth-sounds/fs.mp3');
+const g = new Audio('synth-sounds/g.mp3');
+const gS = new Audio('synth-sounds/gs.mp3');
+const a = new Audio('synth-sounds/a.mp3');
+const as = new Audio('synth-sounds/as.mp3');
+const b = new Audio('synth-sounds/b.mp3');
 
 //Click track
 const tick = new Audio('drum-sounds/tick.mp3');
 const tock = new Audio('drum-sounds/tock.mp3');
 
-//Helper Functions ====================================================
-
-//Interval function
-let intId = 0;
-const startInt = function () { intId = setInterval(metronomeUpdate, 300); }
-
-//count variable
 let count = 0;
+let drumTempo = 400;
+let intId = 0;
+let drumIntid = 0;
 
+const startInt = function () { intId = setInterval(mainInt, drumTempo); }
+const startDrumint = function () { drumIntid = setInterval(drumInt, drumTempo); }
+const startSeqint = function () { seqIntid = setInterval(seqInt, drumTempo); }
 
 // CSS edits ==========================================================
 
@@ -53,29 +51,37 @@ $(document).ready(function () {
         closest('.pad').
         css({ 'background-color': 'red' });
 
+    $('#normal').prop('checked', true);
+    $('.drum-machine').
+        find('.tempo-check:checked').
+        closest('.tempo').
+        css({ 'border': '3px cyan solid' });
+
+});
+
+//Intrument toggle
+$('.show-synth').click(function () {
+    $('.container').css({ 'flex-direction': 'column-reverse' })
+    $('.drum-machine').css({ 'visibility': 'hidden' });
+    $('.synth').css({ "visibility": "visible", "z-index": "1" });
+})
+
+$('.show-drums').click(function () {
+    $('.container').css({ 'flex-direction': 'column' })
+    $('.drum-machine').css({ 'visibility': 'visible' })
+    $('.synth').css({ "visibility": "hidden" });
 });
 
 // body click listeners
 $('body').click(function () {
 
-    $('.show-synth').click(function () {
-        $('.container').css({ 'flex-direction': 'column-reverse' })
-        $('.drum-machine').css({ 'visibility': 'hidden' });
-        $('.synth').css({ "visibility": "visible", "z-index": "1" });
-    })
-
-    $('.show-drums').click(function () {
-        $('.container').css({ 'flex-direction': 'column' })
-        $('.drum-machine').css({ 'visibility': 'visible' })
-        $('.synth').css({ "visibility": "hidden" });
-    })
-
-    $('.drum-machine').
+    //CSS based changes
+    $('body').
         find('.instrument:checked').
         closest('.pad').
         css({ 'background-color': 'rgb(0, 255, 106)' });
 
-    $('.drum-machine').
+    $('body').
         find($('.instrument:checkbox:not(:checked)')).
         closest('.pad').
         css({ 'background-color': 'rgb(70, 70, 70)' });
@@ -90,6 +96,16 @@ $('body').click(function () {
         closest('.pad').
         css({ 'background-color': 'red' });
 
+    $('.drum-machine').
+        find('.tempo-check:checked').
+        closest('.tempo').
+        css({ 'border': '3px cyan solid' });
+
+    $('.drum-machine').
+        find('.tempo-check:radio:not(:checked)').
+        closest('.tempo').
+        css({ 'border': '.5px black solid' });
+
     $('.synth').
         find('input.key-cell:checked').
         closest('.cell').
@@ -103,24 +119,39 @@ $('body').click(function () {
 });
 
 
+
+//Tempo
+$('.tempo-button-row').click(function () {
+
+    drumTempo = Number($(".tempo-check:checked").val());
+
+});
+
 //Start/Stop Button =======================================================
 
-$('input[name=start]').change(function () {
+$('#start-button').click(function () {
 
     if (this.checked) {
+        
         startInt();
+        startDrumint();
+        startSeqint();
+        console.log('started program 2');
+
     } else {
+        
         count = 0;
         clearInterval(intId);
+        clearInterval(drumIntid);
+        clearInterval(seqIntid);
         $("#display-text").text("Count: " + count);
     }
-
 });
 
 // Audio functions ===================================================
 
 //Metronome
-function metronomeUpdate() {
+function mainInt() {
 
     //Click track
     if ($('#metronome').prop('checked')) {
@@ -182,12 +213,22 @@ function metronomeUpdate() {
                 find($(".key-cell:checkbox:not(:checked)")).
                 closest(`.${i}`).
                 css({ 'background-color': 'rgb(33, 3, 46)' });
-        }
-    }
+        };
+    };
+
+    $('.tempo-button-row').click(function () {
+
+        if ($('#start-button').prop('checked')) {
+
+        clearInterval(intId);
+        drumTempo = Number($(".tempo-check:checked").val());
+        intId = setInterval(mainInt, drumTempo);
+
+        };
+    });
 };
 
-//Kick Drum
-setInterval(drumInt, 300);
+
 
 function drumInt() {
 
@@ -208,14 +249,22 @@ function drumInt() {
         } if ($(`#cowbell-${i}`).prop('checked') && count === i) {
             cowBell.load();
             cowBell.play();
-        }
-    }
+        };
+    };
+
+    $('.tempo-button-row').click(function () {
+
+        if ($('#start-button').prop('checked')) {
+
+        clearInterval(drumIntid);
+        drumTempo = Number($(".tempo-check:checked").val());
+        drumIntid = setInterval(drumInt, drumTempo);
+
+        };
+    });
 };
 
-
-setInterval(seqUpdate, 300);
-
-function seqUpdate() {
+function seqInt() {
 
     for (let i = 0; i <= 16; i++) {
 
@@ -257,5 +306,16 @@ function seqUpdate() {
             b.play();
         }
 
-    }
+    };
+
+    $('.tempo-button-row').click(function () {
+
+        if ($('#start-button').prop('checked')) {
+
+        clearInterval(seqIntid)
+        drumTempo = Number($(".tempo-check:checked").val());
+        seqIntid = setInterval(seqInt, drumTempo);
+        
+        }
+    });
 };

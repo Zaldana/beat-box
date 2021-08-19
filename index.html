@@ -13,8 +13,12 @@
 <body>
     <div class="header">
          <div class="pad start">
-            <input type="checkbox" name="start"  class="instrument" >
+            <input type="checkbox" name="start" id="start-button" class="instrument" >
             <h5>Start<br>Stop</h5>
+        </div>
+        <div class="pad start">
+            <input type="checkbox" name="click-track" id="metronome"  class="instrument">
+            <h5>Click<br>Track</h5>
         </div>
         <img src="images/drums.png" class="instrument-pic show-drums" alt="drum machine icon"/>
         <img src="images/keys.png" class="instrument-pic show-synth" alt="sequencer icon"/>
@@ -25,12 +29,37 @@
         <div class="drum-machine">
             
             <div class="drum-row first">
-                <div class="display" id="display-text"></div>  
-               
-                <div class="pad start click">
-                    <input type="checkbox" id="metronome"  class="instrument" >
-                    <h5>Click<br>Track</h5>
+                <div class="display-container">
+                    <div class="display" id="display-text"></div>  
+                </div>    
+                <div class="spacer">
                 </div>
+                    <div class="tempo-container">
+                        <div class="tempo-button-row">
+                    <div class="tempo slower">
+                        <input type="radio" name="switch" id="slower"  class="tempo-check" value="600">
+                    </div>
+                    <div class="tempo slow">
+                        <input type="radio" name="switch" id="slow"  class="tempo-check" value="500">
+                    </div>
+                    <div class="tempo normal">
+                        <input type="radio" name="switch" id="normal"  class="tempo-check" value="400">
+                    </div>
+                    <div class="tempo fast">
+                        <input type="radio" name="switch" id="fast"  class="tempo-check" value="300">
+                    </div>
+                    <div class="tempo faster">
+                        <input type="radio" name="switch" id="faster"  class="tempo-check" value="200">
+                    </div>
+                    </div>
+                    <div class="tempo-text-row">
+                        <p class="tempo-text">slower</p>
+                        <p class="tempo-text">slow</p>
+                        <p class="tempo-text">normal</p>
+                        <p class="tempo-text">fast</p>
+                        <p class="tempo-text">faster</p>
+                    </div>
+                    </div>
             </div>
 
             <div class="text-row">
@@ -460,7 +489,7 @@
         
         <div class="synth">
 
-            <div class="display-row"> 
+            <div class="sequencer-row"> 
                 <div class="sequencer">
                     
                     <div class="synth-row">
