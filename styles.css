@@ -277,31 +277,37 @@ h5 {
     flex-direction: column;
     background-color: #b4b4b4;
     border-radius: 10px;
-    box-shadow: 0 0 14px rgb(133, 10, 92);
+    box-shadow: 0 0 10px rgb(133, 10, 92);
 }
 
 .sequencer-row {
     height: 70%;
     width: 100%;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-}
+}         
 
 .sequencer {
-    height: 85%;
-    width: 90%;
+    height: 90%;
+    width: 100%;
     background-color: rgb(33, 3, 46);
-    border-radius: 1px;
     box-shadow: 0 0 7px rgb(133, 10, 92);
     display: flex;
     flex-direction: column-reverse;
-    justify-content: space-around;
     color: rgb(255, 8, 0);
-    text-align: center;
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
     font-size: 30px;
+}
+
+         
+.seq-button-row {
+    height: 10%;
+    width: 100%;
+    box-shadow: 0 0 14px rgb(133, 10, 92);
+    background-color: rgb(33, 33, 33);
 }
 
 .synth-row {
@@ -344,13 +350,14 @@ h5 {
 }
 
 .key-container {
-    height: 95%;
+    height: 98%;
     width: 70px;
     background-color: rgb(70, 70, 70);
     border: 4px cyan solid;
     border-radius: 5px;
     cursor: pointer;
-    border-radius: 30px; 
+    border-radius: 20px;
+    position: relative;
 }
 
 .key-container:hover {
@@ -360,6 +367,8 @@ h5 {
 .key-container.black {
     border: 3px rgb(241, 122, 75) solid;
     background-color: rgb(33, 3, 46);
+    z-index: 1;
+    margin: 0;
 }
 
 .key-container.black:hover {
