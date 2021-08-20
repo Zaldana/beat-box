@@ -7,7 +7,7 @@ const hiHats = new Audio('drum-sounds/hi-hat.mp3');
 const snareDrum = new Audio('drum-sounds/snare.mp3');
 const cowBell = new Audio('drum-sounds/cowbell.mp3');
 
-//Synth
+//Sequencer
 const c = new Audio('synth-sounds/c.mp3');
 const cS = new Audio('synth-sounds/cs.mp3');
 const d = new Audio('synth-sounds/d.mp3');
@@ -21,12 +21,31 @@ const a = new Audio('synth-sounds/a.mp3');
 const aS = new Audio('synth-sounds/as.mp3');
 const b = new Audio('synth-sounds/b.mp3');
 
+//Synth
+const kC =new Audio('synth-sounds/kc.mp3');
+const kCs = new Audio('synth-sounds/kcs.mp3');
+const kD = new Audio('synth-sounds/kd.mp3');
+const kDs = new Audio('synth-sounds/kds.mp3');
+const kE = new Audio('synth-sounds/ke.mp3');
+const kF = new Audio('synth-sounds/kf.mp3');
+const kFs = new Audio('synth-sounds/kfs.mp3');
+const kG = new Audio('synth-sounds/kg.mp3');
+const kGs = new Audio('synth-sounds/kgs.mp3');
+const kA = new Audio('synth-sounds/ka.mp3');
+const kAs = new Audio('synth-sounds/kas.mp3');
+const kB = new Audio('synth-sounds/kb.mp3');
+const kC2 = new Audio('synth-sounds/kc2.mp3');
+const kCs2 = new Audio('synth-sounds/kcs2.mp3'); 
+const kD2 = new Audio('synth-sounds/kd2.mp3');
+const kDs2 = new Audio('synth-sounds/kds2.mp3');
+const kE2 = new Audio('synth-sounds/ke2.mp3');
+
 //Click track
 const tick = new Audio('drum-sounds/tick.mp3');
 const tock = new Audio('drum-sounds/tock.mp3');
 
 let count = 0;
-let drumTempo = 400;
+let drumTempo = 350;
 let intId = 0;
 let drumIntid = 0;
 
@@ -340,8 +359,24 @@ function seqInt() {
     });
 };
 
-$("input:button").click(function () {
+$('body').keydown("keydown", function (event) {
 
-    $(this).css({ 'background-color': 'rgb(126, 4, 4)' });
+    switch (event.key) { case "q": kC.load(); kC.play(); break; } 
+    switch (event.key) { case "2": kCs.load(); kCs.play(); break; }
+    switch (event.key) { case "w": kD.load(); kD.play(); break; }
+    switch (event.key) { case "3": kDs.load(); kDs.play(); break; }
+    switch (event.key) { case "e": kE.load(); kE.play(); break; }
+    switch (event.key) { case "r": kF.load(); kF.play(); break; }
+    switch (event.key) { case "5": kFs.load(); kFs.play(); break; }
+    switch (event.key) { case "t": kG.load(); kG.play(); break; }
+    switch (event.key) { case "6": kGs.load(); kGs.play(); break; }
+    switch (event.key) { case "y": kA.load(); kA.play(); break; }
+    switch (event.key) { case "7": kAs.load(); kAs.play(); break; }
+    switch (event.key) { case "u": kB.load(); kB.play(); break; }
+    switch (event.key) { case "i": kC2.load(); kC2.play(); break; } 
+    switch (event.key) { case "9": kCs2.load(); kCs2.play();break; }
+    switch (event.key) { case "o": kD2.load(); kD2.play(); break; }
+    switch (event.key) { case "0": kDs2.load(); kDs2.play();break; }
+    switch (event.key) { case "p": kE2.load(); kE2.play(); break; }
 
 })
