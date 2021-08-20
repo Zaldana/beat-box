@@ -9,16 +9,16 @@ const cowBell = new Audio('drum-sounds/cowbell.mp3');
 
 //Synth
 const c = new Audio('synth-sounds/c.mp3');
-const cs = new Audio('synth-sounds/cs.mp3');
+const cS = new Audio('synth-sounds/cs.mp3');
 const d = new Audio('synth-sounds/d.mp3');
-const ds = new Audio('synth-sounds/ds.mp3');
+const dS = new Audio('synth-sounds/ds.mp3');
 const e = new Audio('synth-sounds/e.mp3');
 const f = new Audio('synth-sounds/f.mp3');
-const fs = new Audio('synth-sounds/fs.mp3');
+const fS = new Audio('synth-sounds/fs.mp3');
 const g = new Audio('synth-sounds/g.mp3');
 const gS = new Audio('synth-sounds/gs.mp3');
 const a = new Audio('synth-sounds/a.mp3');
-const as = new Audio('synth-sounds/as.mp3');
+const aS = new Audio('synth-sounds/as.mp3');
 const b = new Audio('synth-sounds/b.mp3');
 
 //Click track
@@ -34,6 +34,43 @@ const startInt = function () { intId = setInterval(mainInt, drumTempo); }
 const startDrumint = function () { drumIntid = setInterval(drumInt, drumTempo); }
 const startSeqint = function () { seqIntid = setInterval(seqInt, drumTempo); }
 
+const lightUpdrums = function () {
+     $('body').find('.instrument:checked').closest('.pad').
+    css({ 'background-color': 'rgb(0, 255, 106)' }); 
+};
+
+const lightUpseq = function () {
+    $('.synth').find('input.key-cell:checked').closest('.cell').
+     css({ 'background-color': 'rgb(126, 4, 4)' });
+};
+
+const lightUpstep = function () {
+    $('.drum-machine').find('.break:checked').closest('.pad').
+    css({ 'background-color': 'red' });
+};
+
+const lightUptempo = function () {
+    $('.drum-machine').find('.tempo-check:checked').closest('.tempo').
+    css({ 'border': '3px cyan solid' });
+}
+
+const drumDisplay = function () {
+    $("#display-text").text("Count: " + count);
+}
+
+let storageArray = [];
+
+let initialValue = JSON.parse(localStorage.getItem('checked'));
+if (initialValue === null) {
+    initialValue = [];
+};
+
+for (i=0; i<=initialValue.length; i++) {
+
+     $('body').find(`#${initialValue[i]}`).attr('checked', true);
+
+}
+    
 // CSS edits ==========================================================
 
 //On page load
@@ -46,16 +83,16 @@ $(document).ready(function () {
     });
     
     $('#step-16').prop('checked', true);
-    $('.drum-machine').
-        find('.break:checked').
-        closest('.pad').
-        css({ 'background-color': 'red' });
 
     $('#normal').prop('checked', true);
-    $('.drum-machine').
-        find('.tempo-check:checked').
-        closest('.tempo').
-        css({ 'border': '3px cyan solid' });
+
+    lightUpdrums();
+    
+    lightUpseq();
+
+    lightUpstep();
+
+    lightUptempo();
 
 });
 
@@ -75,57 +112,45 @@ $('.show-drums').click(function () {
 // body click listeners
 $('body').click(function () {
 
+    storageArray = []
+
+    $('.drum-machine').
+        find(".instrument:checked").
+    each(function () { storageArray.push($(this).attr("id")); });
+
+    $('.synth').
+        find(".key-cell:checked").
+        each(function () { storageArray.push($(this).attr("id")); });
+
+    localStorage.setItem('checked', JSON.stringify(storageArray));
+
     //CSS based changes
-    $('body').
-        find('.instrument:checked').
-        closest('.pad').
-        css({ 'background-color': 'rgb(0, 255, 106)' });
+    lightUpdrums();
+
+    lightUpseq();
+
+    lightUpstep();
+
+    lightUptempo();
 
     $('body').
-        find($('.instrument:checkbox:not(:checked)')).
-        closest('.pad').
+        find($('.instrument:checkbox:not(:checked)')).closest('.pad').
         css({ 'background-color': 'rgb(70, 70, 70)' });
 
     $('.drum-machine').
-        find('.break:radio:not(:checked)').
-        closest('.pad').
+        find('.break:radio:not(:checked)').closest('.pad').
         css({ 'background-color': 'rgb(70, 70, 70)' });
 
     $('.drum-machine').
-        find('.break:checked').
-        closest('.pad').
-        css({ 'background-color': 'red' });
-
-    $('.drum-machine').
-        find('.tempo-check:checked').
-        closest('.tempo').
-        css({ 'border': '3px cyan solid' });
-
-    $('.drum-machine').
-        find('.tempo-check:radio:not(:checked)').
-        closest('.tempo').
+        find('.tempo-check:radio:not(:checked)').closest('.tempo').
         css({ 'border': '.5px black solid' });
 
     $('.synth').
-        find('input.key-cell:checked').
-        closest('.cell').
-        css({ 'background-color': 'rgb(126, 4, 4)' });
-
-    $('.synth').
-        find($('input.key-cell:checkbox:not(:checked)')).
-        closest('.cell').
+        find($('input.key-cell:checkbox:not(:checked)')).closest('.cell').
         css({ 'background-color': 'rgb(33, 3, 46)' });
-
+      
 });
 
-
-
-//Tempo
-$('.tempo-button-row').click(function () {
-
-    drumTempo = Number($(".tempo-check:checked").val());
-
-});
 
 //Start/Stop Button =======================================================
 
@@ -136,7 +161,6 @@ $('#start-button').click(function () {
         startInt();
         startDrumint();
         startSeqint();
-        console.log('started program 2');
 
     } else {
         
@@ -144,7 +168,7 @@ $('#start-button').click(function () {
         clearInterval(intId);
         clearInterval(drumIntid);
         clearInterval(seqIntid);
-        $("#display-text").text("Count: " + count);
+        drumDisplay();
     }
 });
 
@@ -170,17 +194,13 @@ function mainInt() {
 
     let radioVariable = Number($(".break:checked").val());
 
-    if (count >= radioVariable) {
-        
-        count = 0;
-   
-    };
+    if (count >= radioVariable) { count = 0; };
 
     //Count Update
     count += 1;
 
     //Count display
-    $("#display-text").text("Count: " + count);
+    drumDisplay();
 
     // Count animation ===========================================================================
     for (i = 0; i <= 16; i++ ) {
@@ -272,14 +292,14 @@ function seqInt() {
             c.load();
             c.play();
         } if ($(`#cs${i}`).prop('checked') && count === i) {
-            cs.load();
-            cs.play();
+            cS.load();
+            cS.play();
         } if ($(`#d${i}`).prop('checked') && count === i) {
             d.load();
             d.play();
         } if ($(`#ds${i}`).prop('checked') && count === i) {
-            ds.load();
-            ds.play();
+            dS.load();
+            dS.play();
         } if ($(`#e${i}`).prop('checked') && count === i) {
             e.load();
             e.play();
@@ -287,20 +307,20 @@ function seqInt() {
             f.load();
             f.play();
         } if ($(`#fs${i}`).prop('checked') && count === i) {
-            fs.load();
-            fs.play();
+            fS.load();
+            fS.play();
         } if ($(`#g${i}`).prop('checked') && count === i) {
             g.load();
             g.play();
         } if ($(`#gs${i}`).prop('checked') && count === i) {
-            gs.load();
-            gs.play();
+            gS.load();
+            gS.play();
         } if ($(`#a${i}`).prop('checked') && count === i) {
             a.load();
             a.play();
         } if ($(`#as${i}`).prop('checked') && count === i) {
-            as.load();
-            as.play();
+            aS.load();
+            aS.play();
         } if ($(`#b${i}`).prop('checked') && count === i) {
             b.load();
             b.play();
@@ -319,3 +339,9 @@ function seqInt() {
         }
     });
 };
+
+$("input:button").click(function () {
+
+    $(this).css({ 'background-color': 'rgb(126, 4, 4)' });
+
+})

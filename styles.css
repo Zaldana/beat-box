@@ -275,7 +275,6 @@ h5 {
     width: 65%;
     display: flex;
     flex-direction: column;
-    background-color: #b4b4b4;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(133, 10, 92);
 }
@@ -290,7 +289,7 @@ h5 {
 }         
 
 .sequencer {
-    height: 90%;
+    height: 100%;
     width: 100%;
     background-color: rgb(33, 3, 46);
     box-shadow: 0 0 7px rgb(133, 10, 92);
@@ -300,14 +299,6 @@ h5 {
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
     font-size: 30px;
-}
-
-         
-.seq-button-row {
-    height: 10%;
-    width: 100%;
-    box-shadow: 0 0 14px rgb(133, 10, 92);
-    background-color: rgb(33, 33, 33);
 }
 
 .synth-row {
@@ -333,46 +324,59 @@ h5 {
     justify-content: center;
     align-items: center;
 }
-.keys-row-one {
-    height: 15%;
+
+.key-text-row-sharp {
     width: 100%;
+    height: 3%;
+    display: flex;
+    padding-top: 5px;
+    justify-content: center;
     background-color: rgb(33, 33, 33);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0 0 10px rgb(133, 10, 92);
+    padding-left: 10%;
+    border-top: rgba(255, 0, 0, 0.5) 3px solid;
 }
 
-.keys-row-two {
-    height: 25%;
+.sharp-keys-container {
+    height: 80%;
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-top: .5%;
+    padding-left: 8%;
+    border-top: rgba(255, 0, 0, 0.3) 3px solid;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.key-container {
-    height: 98%;
-    width: 70px;
-    background-color: rgb(70, 70, 70);
-    border: 4px cyan solid;
-    border-radius: 5px;
-    cursor: pointer;
-    border-radius: 20px;
-    position: relative;
+.natural-keys-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: .5%;
+    border-bottom: rgba(255, 0, 0, 0.3) 3px solid;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.key-container:hover {
-    box-shadow: 0 0 7px cyan;
+.key-text-row-natural {
+    width: 100%;
+    height: 3%;
+    display: flex;
+    padding-left: 4%;
+    padding-right: 3%;
+    padding-top: 5px;
+    background-color: rgb(33, 33, 33);
+    box-shadow: 0 0 10px rgb(133, 10, 92);
 }
 
-.key-container.black {
-    border: 3px rgb(241, 122, 75) solid;
-    background-color: rgb(33, 3, 46);
-    z-index: 1;
-    margin: 0;
-}
-
-.key-container.black:hover {
-    box-shadow: 0 0 10px coral;
+.letter {
+    color: red;
+    font-size: 14px;
+    width: 10%;
+    text-align: center;
+    height: 100%;
+    margin-right: 3%;
+    margin-top: 0;
 }
 
 .key {
@@ -395,7 +399,36 @@ h5 {
     box-shadow: 0 0 3px rgb(253, 136, 208);
 }
 
-.invisible {
+.key-button.invisible {
     visibility: hidden;
+    width: 10%;
 }
 
+.key-button {
+    border-radius: 10%;
+    cursor: pointer;
+    height: 100%;
+    width: 9.1%;
+    background-color: rgb(70, 70, 70);
+    cursor: pointer;
+    border-radius: 20px;
+    margin-left: 2px;
+}
+
+.key-button:hover {
+    box-shadow: 0 0 10px coral;
+}
+
+.key-button.sharp {
+    border-radius: 10%;
+    cursor: pointer;
+    height: 100%;
+    width: 10%;
+    background-color: rgba(55, 19, 70, 0.523);
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.key-button.sharp:hover {
+    box-shadow: 0 0 7px cyan;
+}
