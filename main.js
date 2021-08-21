@@ -374,9 +374,27 @@ $('body').keydown("keydown", function (event) {
     switch (event.key) { case "7": kAs.load(); kAs.play(); break; }
     switch (event.key) { case "u": kB.load(); kB.play(); break; }
     switch (event.key) { case "i": kC2.load(); kC2.play(); break; } 
-    switch (event.key) { case "9": kCs2.load(); kCs2.play();break; }
+    switch (event.key) { case "9": kCs2.load(); kCs2.play(); break; }
     switch (event.key) { case "o": kD2.load(); kD2.play(); break; }
-    switch (event.key) { case "0": kDs2.load(); kDs2.play();break; }
+    switch (event.key) { case "0": kDs2.load(); kDs2.play(); break; }
     switch (event.key) { case "p": kE2.load(); kE2.play(); break; }
 
 })
+
+$('#kc').click(function () { kC.load(); kC.play(); });
+$('#kcs').click(function () { kCs.load(); kCs.play(); });
+$('#kd').click(function () { kD.load(); kD.play(); });
+$('#kds').click(function () { kDs.load(); kDs.play(); });
+$('#ke').click(function () { kE.load(); kE.play(); });
+$('#kf').click(function () { kF.load(); kF.play(); });
+$('#kfs').click(function () { kFs.load(); kFs.play(); });
+$('#kg').click(function () { kG.load(); kG.play(); });
+$('#kgs').click(function () { kGs.load(); kGs.play(); });
+$('#ka').click(function () { kA.load(); kA.play(); });
+$('#kas').click(function () { kAs.load(); kAs.play(); });
+$('#kb').click(function () { kB.load(); kB.play(); });
+$('#kc2').click(function () { kC2.load(); kC2.play(); });
+$('#kcs2').click(function () { kCs2.load(); kCs2.play(); });
+$('#kd2').click(function () { kD2.load(); kD2.play(); });
+$('#kds2').click(function () { kDs2.load(); kDs2.play(); });
+$('#ke2').click(function () { kE2.load(); kE2.play(); });
