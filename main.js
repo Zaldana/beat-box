@@ -1,13 +1,13 @@
-//Samples =============================================================
+//Audio Files =============================================================
 
-//Drums
+//Drums Audio
 const kickDrum = new Audio('drum-sounds/kick-drum.mp3');
 const clap = new Audio('drum-sounds/clap.mp3');
 const hiHats = new Audio('drum-sounds/hi-hat.mp3');
 const snareDrum = new Audio('drum-sounds/snare.mp3');
 const cowBell = new Audio('drum-sounds/cowbell.mp3');
 
-//Sequencer
+//Sequencer Audio
 const c = new Audio('synth-sounds/c.mp3');
 const cS = new Audio('synth-sounds/cs.mp3');
 const d = new Audio('synth-sounds/d.mp3');
@@ -21,7 +21,7 @@ const a = new Audio('synth-sounds/a.mp3');
 const aS = new Audio('synth-sounds/as.mp3');
 const b = new Audio('synth-sounds/b.mp3');
 
-//Synth
+//Synth Audio
 const kC =new Audio('synth-sounds/kc.mp3');
 const kCs = new Audio('synth-sounds/kcs.mp3');
 const kD = new Audio('synth-sounds/kd.mp3');
@@ -44,145 +44,103 @@ const kE2 = new Audio('synth-sounds/ke2.mp3');
 const tick = new Audio('drum-sounds/tick.mp3');
 const tock = new Audio('drum-sounds/tock.mp3');
 
+// Starting variables ========================================================================
+
 let count = 0;
 let drumTempo = 350;
 let intId = 0;
 let drumIntid = 0;
+let seqIntid = 0;
+
+// Interval Functions ========================================================================
 
 const startInt = function () { intId = setInterval(mainInt, drumTempo); }
 const startDrumint = function () { drumIntid = setInterval(drumInt, drumTempo); }
 const startSeqint = function () { seqIntid = setInterval(seqInt, drumTempo); }
 
+// Repetetive Functions =====================================================================
+
+// Drum pad css change
 const lightUpdrums = function () {
      $('body').find('.instrument:checked').closest('.pad').
     css({ 'background-color': 'rgb(0, 255, 106)' }); 
 };
 
+// Sequencer cell css change
 const lightUpseq = function () {
     $('.synth').find('input.key-cell:checked').closest('.cell').
      css({ 'background-color': 'rgb(126, 4, 4)' });
 };
 
+// Measure selector pad css change
 const lightUpstep = function () {
     $('.drum-machine').find('.break:checked').closest('.pad').
     css({ 'background-color': 'red' });
 };
 
+// Tempo switches css change
 const lightUptempo = function () {
     $('.drum-machine').find('.tempo-check:checked').closest('.tempo').
     css({ 'border': '3px cyan solid' });
 }
 
+// Update count display
 const drumDisplay = function () {
     $("#display-text").text("Count: " + count);
 }
 
+// Local Storage =========================================================================
+
+// Empty array for ids 
 let storageArray = [];
 
+// Local storage initial value
 let initialValue = JSON.parse(localStorage.getItem('checked'));
 if (initialValue === null) {
     initialValue = [];
 };
 
+//Load preiviously checked pads and cells
 for (i=0; i<=initialValue.length; i++) {
-
      $('body').find(`#${initialValue[i]}`).attr('checked', true);
-
 }
-    
-// CSS edits ==========================================================
 
-//On page load
+// On page load function ===================================================================
 $(document).ready(function () {
 
+    // Hide Sequencer and place behind drum machine
     $('.synth').css({
         "visibility": "hidden",
         "position": "absolute",
         "z-index": "-1"
     });
     
+    // Start with step selector on beat 16 clicked and lightup
     $('#step-16').prop('checked', true);
+    lightUpstep();
 
+    // Start tempo switch at normal and light up
     $('#normal').prop('checked', true);
+    lightUptempo();
 
+    // Light up selected drum pads from local storage
     lightUpdrums();
     
+    // Light up selected sequencer cells from local storage
     lightUpseq();
-
-    lightUpstep();
-
-    lightUptempo();
-
 });
 
-//Intrument toggle
-$('.show-synth').click(function () {
-    $('.container').css({ 'flex-direction': 'column-reverse' })
-    $('.drum-machine').css({ 'visibility': 'hidden' });
-    $('.synth').css({ "visibility": "visible", "z-index": "1" });
-})
+//Header Row Buttons =====================================================================
 
-$('.show-drums').click(function () {
-    $('.container').css({ 'flex-direction': 'column' })
-    $('.drum-machine').css({ 'visibility': 'visible' })
-    $('.synth').css({ "visibility": "hidden" });
-});
-
-// body click listeners
-$('body').click(function () {
-
-    storageArray = []
-
-    $('.drum-machine').
-        find(".instrument:checked").
-    each(function () { storageArray.push($(this).attr("id")); });
-
-    $('.synth').
-        find(".key-cell:checked").
-        each(function () { storageArray.push($(this).attr("id")); });
-
-    localStorage.setItem('checked', JSON.stringify(storageArray));
-
-    //CSS based changes
-    lightUpdrums();
-
-    lightUpseq();
-
-    lightUpstep();
-
-    lightUptempo();
-
-    $('body').
-        find($('.instrument:checkbox:not(:checked)')).closest('.pad').
-        css({ 'background-color': 'rgb(70, 70, 70)' });
-
-    $('.drum-machine').
-        find('.break:radio:not(:checked)').closest('.pad').
-        css({ 'background-color': 'rgb(70, 70, 70)' });
-
-    $('.drum-machine').
-        find('.tempo-check:radio:not(:checked)').closest('.tempo').
-        css({ 'border': '.5px black solid' });
-
-    $('.synth').
-        find($('input.key-cell:checkbox:not(:checked)')).closest('.cell').
-        css({ 'background-color': 'rgb(33, 3, 46)' });
-      
-});
-
-
-//Start/Stop Button =======================================================
-
+// START BUTTON
 $('#start-button').click(function () {
 
     if (this.checked) {
-        
         startInt();
         startDrumint();
         startSeqint();
 
     } else {
-        
         count = 0;
         clearInterval(intId);
         clearInterval(drumIntid);
@@ -191,9 +149,78 @@ $('#start-button').click(function () {
     }
 });
 
-// Audio functions ===================================================
+// Show sequencer on click
+$('.show-synth').click(function () {
+    $('.container').css({ 'flex-direction': 'column-reverse' })
+    $('.drum-machine').css({ 'visibility': 'hidden' });
+    $('.synth').css({ "visibility": "visible", "z-index": "1" });
+})
 
-//Metronome
+// Show drum machine on click
+$('.show-drums').click(function () {
+    $('.container').css({ 'flex-direction': 'column' })
+    $('.drum-machine').css({ 'visibility': 'visible' })
+    $('.synth').css({ "visibility": "hidden" });
+});
+
+// Body click listener function =============================================================
+
+$('body').click(function () {
+
+    // Local storage update
+    // Clear local storage
+    storageArray = []
+
+    // Add ids of clicked pads to storage array
+    $('.drum-machine').
+        find(".instrument:checked").
+    each(function () { storageArray.push($(this).attr("id")); });
+
+    // Add ids of clicked cells to storage array
+    $('.synth').
+        find(".key-cell:checked").
+        each(function () { storageArray.push($(this).attr("id")); });
+
+    // Update local storage array
+    localStorage.setItem('checked', JSON.stringify(storageArray));
+
+    // Light up drums on check
+    lightUpdrums();
+
+    // Light up sequencer cells on check
+    lightUpseq();
+
+    // Light up step selector on check
+    lightUpstep();
+
+    // Light up tempo selector on check
+    lightUptempo();
+
+    // Return pad to normal color on uncheck
+    $('body').
+        find($('.instrument:checkbox:not(:checked)')).closest('.pad').
+        css({ 'background-color': 'rgb(70, 70, 70)' });
+
+    // Return step selector to normal color on uncheck
+    $('.drum-machine').
+        find('.break:radio:not(:checked)').closest('.pad').
+        css({ 'background-color': 'rgb(70, 70, 70)' });
+
+    // Return tempo selector to normal color on uncheck
+    $('.drum-machine').
+        find('.tempo-check:radio:not(:checked)').closest('.tempo').
+        css({ 'border': '.5px black solid' });
+
+    // Return sequencer selector to normal color on uncheck
+    $('.synth').
+        find($('input.key-cell:checkbox:not(:checked)')).closest('.cell').
+        css({ 'background-color': 'rgb(33, 3, 46)' });
+      
+});
+
+// Audio functions ==================================================================
+
+//Main interval function
 function mainInt() {
 
     //Click track
@@ -211,8 +238,10 @@ function mainInt() {
         }
     };
 
+    // step selector value
     let radioVariable = Number($(".break:checked").val());
 
+    // Reset count based on the step selector
     if (count >= radioVariable) { count = 0; };
 
     //Count Update
@@ -221,11 +250,13 @@ function mainInt() {
     //Count display
     drumDisplay();
 
-    // Count animation ===========================================================================
+    // Count animation ====================================================================
+    
     for (i = 0; i <= 16; i++ ) {
 
         if (count === i) {
 
+            // Drum machine column light up
             $('.drum-machine').
                 find($(".instrument:checkbox:not(:checked)")).
                 closest(`.${i}`).
@@ -234,6 +265,7 @@ function mainInt() {
                     'box-shadow': '0 0 20px rgb(191, 255, 255)'
                 });
             
+            // Sequencer column light up
             $('.synth').
                 find($(".key-cell:checkbox:not(:checked)")).
                 closest(`.${i}`).
@@ -255,6 +287,9 @@ function mainInt() {
         };
     };
 
+    //Tempo =====================================================================
+
+    //Set tempo based on the value of the selected radio button
     $('.tempo-button-row').click(function () {
 
         if ($('#start-button').prop('checked')) {
@@ -267,8 +302,9 @@ function mainInt() {
     });
 };
 
+// Audio functions =============================================
 
-
+// Play when pad checked and equal to count
 function drumInt() {
 
     for (let i=0; i <= 16; i++) {
@@ -291,6 +327,7 @@ function drumInt() {
         };
     };
 
+    //Tempo change function based on radio value 
     $('.tempo-button-row').click(function () {
 
         if ($('#start-button').prop('checked')) {
@@ -303,6 +340,7 @@ function drumInt() {
     });
 };
 
+// Play when cell checked and equal to count
 function seqInt() {
 
     for (let i = 0; i <= 16; i++) {
@@ -347,6 +385,7 @@ function seqInt() {
 
     };
 
+    //Tempo change function based on radio value 
     $('.tempo-button-row').click(function () {
 
         if ($('#start-button').prop('checked')) {
@@ -359,6 +398,7 @@ function seqInt() {
     });
 };
 
+// Switch Case for playing with keyboard
 $('body').keydown("keydown", function (event) {
 
     switch (event.key) { case "q": kC.load(); kC.play(); break; } 
@@ -381,6 +421,7 @@ $('body').keydown("keydown", function (event) {
 
 })
 
+// Mouse click on keyboard to play
 $('#kc').click(function () { kC.load(); kC.play(); });
 $('#kcs').click(function () { kCs.load(); kCs.play(); });
 $('#kd').click(function () { kD.load(); kD.play(); });
