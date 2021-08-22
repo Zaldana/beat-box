@@ -275,11 +275,13 @@ function mainInt() {
 
         } if (count != i) {
 
+            // Drum machine column light off
             $('.drum-machine').
                 find($(".instrument:checkbox:not(:checked)")).
                 closest(`.${i}`).
                 css({ 'background-color': 'rgb(70, 70, 70)' });
 
+            // Sequencer column light off
             $('.synth').
                 find($(".key-cell:checkbox:not(:checked)")).
                 closest(`.${i}`).

@@ -53,7 +53,7 @@ The **Keyboard** section can be used by clicking on the keys with a mouse or by 
 
 - To enable the metronome you can click on the **CLICK TRACK** button. You can use the metronome to help you create a sequence on the sequencer without a drum machine beat.
 
-- The step selector can be used to separate two beats. If you were two select the eighth step everything beyond the eighth beat could be used as a fill, and enabled live.
+- The step selector can be used to separate two beats. If you were to select the eighth step everything beyond the eighth beat could be used as a fill, and enabled live.
 
 - Musical typing works regardless of whether the sequencer is selected.
 
